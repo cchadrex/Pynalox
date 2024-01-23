@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Миколаївська пекарня</title>
+    <!-- Шрифты подключаем -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;900&display=swap" rel="stylesheet">
+        <!-- Стили -->
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <!-- Раз -->
+    <header class="header">
+        <div class="container">
+            <div class="header-container">
+                <nav class="header-nav">
+                    <!-- Logo and menu -->
+                    <a href="./index.html">
+                        <img src="./Figmaimg/logo.svg" alt="Логотип Миколаївської пекарні">
+                    </a>
+                    <ul class="header-menu">
+                        <!-- Меню. Список який можна змінити, Li - використовуються тількии в ЮЛ і ОЛ, меню для навігації -->
+                        <li><a class="link" href="#Format-tradition">Наші традиції</a></li>
+                        <li><a class="link" href="#Best-cooks">Шеф-кухарі</a></li>
+                        <li><a class="link" href="#Format">Формати</a></li>
+                        <li><a class="link" href="#Contact">Контакти</a></li>
+                    </ul>
+                </nav>
+                <button class="mainbutton modal-btn-open" type="button">Замовити дзвінок</a></button>
+            </div>
+        </div>
+    </header>
+    <!-- Два -->
+    <main>
+        <!-- Основний контент сайту -->
+        <!-- 111111 -->
+        <section class="hero-section"> 
+            <div class="container">
+                <!-- Головна назва основної секціі -->
+                <h1 class="hero-title"><span class="main-name">Пекарня</span> Миколаєва</h1>
+            </div>
+        </section>
+        <!-- 1,5 Половина секция -->
+        <section class="adv-section">
+            <div class="container"><h2 class="hidden">Наші переваги</h2>
+                <ul class="adv-list">
+                    <li class="adv-item">Великий попит на ринку</li>
+                    <li class="adv-item">Доступні за бюджетом формати</li>
+                    <li class="adv-item">Досвідчена управлінська команда</li>
+                </ul>
+            </div>
+        </section>
+        <!-- 222222 -->
+        <section class="Format-tradition" id="Format-tradition">
+            <!-- br - заканчивает строку и остальной текст переносит на следующий ряд
+            Лучший вариант будет задать определнную ширину, сделать класс параграфу с текстом и 
+        задать ему ширину - max-width: 360px; -->
+            <div class="container">
+                <div class="tradition-container">
+                    <div class="tradition-content">
+                        <h2 class="tradition-title section-tittle">Новий формат традицій</h2>
+                        <p>
+                            <span class="Tradition-text">shop bakery</span> — це пекарня, яка взяла все найкраще, і зберегла
+                            смак <br>  традиційної випічки та натуральність інгредієнтів.
+                        </p>
+                        <p>
+                            Ми працюємо як найвідоміші мережі— <br>
+                            <span class="Tradition-textua">5 хвилин і замовлення готове</span>. <br>
+                            А ще у наших пекарень стильний дизайн <br>
+                            та висока якість обслуговування!
+                        </p>
+                    </div>
+                    <img src="./Figmaimg/section2ph.jpg" alt="Пекар з хлібом, дивиться на хліб">
+                </div>
+            </div>
+        </section>
+        <!-- 333333 -->
+        <section class="all-section" id="Best-cooks">
+            <div class="container">
+                <h2 class="cooks-title section-tittle">Наші найкращі <span class="section-spn">шеф - кухарі</span></h2>
+                <!-- Те що може повторюватись -->
+                <ul class="chefs-list">
+                    <li class="chefs-item">
+                        <article class="chef-card">
+                            <img class="cooks-img" src="./Figmaimg/Без имени1.jpg" alt="Sandra chef">
+                            <!-- Назви секцій в основних секціях -->
+                            <div>
+                                <!-- Добовляем ДИВ для того чтобы сделать по факту 2 блока в одном картинку в другом текст -->
+                                <h3 class="chef-name">Олександра</h3>
+                                <div class="chef-text">
+                                    <p>Привіт, я Олександра!</p>
+                                    <p>Вже 2 роки я крутий професійний психолог, але також втілюю у життя цікаві та смачні ідеї.</p>
+                                    <p>Я випічу для вас найсмачніщі вироби!</p>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="chefs-item">
+                        <article class="chef-card">
+                            <img class="cooks-img" src="./Figmaimg/Без имени.jpg" alt="Vlad chef">
+                            <div>
+                                <h3 class="chef-name">Влад</h3>
+                                <div class="chef-text">
+                                    <p>Привіт, я Влад!</p>
+                                    <p>Мій кодитерський стаж вже 24 років. SHOP BEKERY - це наша любов, з якою ми ділимось кожен раз з Вами
+                                        через нашу
+                                        випічку!</p>
+                                    <p>Я зроблю для вас унікальну начинку на будь який смак!</p>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- 444444 -->
+        <section class="all-section bgrsec3" id="Format">
+            <div class="container">
+                <h2 class="formatsss-title section-tittle">Формати</h2>
+                <!-- Добовляем div - чтобы все элементы поставить в одну линию  -->
+                <div class="formats-container">
+                    <button class="carousel" type="button">
+                        <svg class="carousel-arrow" width="16" height="16">
+                            <use href="./Figmaimg/sprite.svg#icon-Arrow1"></use>
+                        </svg>
+                    </button>
+                    <!-- Карточки -->
+                    <ul class="format-list">
+                        <li class="formats-item">
+                            <article class="format-card forma1">
+                                <h3 class="format-title"> Walrus</h3>
+                                <div class="format-text">
+                                    <p>Площа: до 120 м2</p>
+                                    <p>Меню: розширене меню</p>
+                                    <p>Штат: 2 продавці-касири, 2 пекарі, 2 помічники пекаря, 2 офіціанти-різнороби
+                                    </p>
+                                    <p>Посадкові місця: є</p>
+                                    <!-- <img class="" src="./Figmaimg/forma1.jpg" alt="Walrus"> -->
+                                </div>
+                            </article>
+                        </li>
+                        <li class="formats-item">
+                            <article class="format-card forma2">
+                                <h3 class="format-title">Horseshoe</h3>
+                                <div class="format-text">
+                                    <p>Площа: до 25 м2</p>
+                                    <p>Меню: найпопулярніші позиції меню</p>
+                                    <p>Штат: 2 продавці-касири, 2 пекарі, 1 помічник пекаря</p>
+                                    <p>Посадкові місця: відсутні</p>
+                                </div>
+                            </article>
+                        </li>
+                        <li class="formats-item">
+                            <article class="format-card forma3">
+                                <h3 class="format-title">Handlebar</h3>
+                                <div class="format-text">
+                                    <p>Площа: до 15 м2</p>
+                                    <p>Меню: найпопулярніші позиції меню</p>
+                                    <p>Штат: 1 продавець, 1 пекар, 1 помічник пекаря</p>
+                                    <p>Посадкові місця: відсутні</p>
+                                </div>
+                            </article>
+                        </li>
+                    </ul>
+                    <button class="carousel" type="button">
+                        <svg class="carousel-arrow arrow-transform" width="16" height="16">
+                            <use href="./Figmaimg/sprite.svg#icon-Arrow1"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- 555555 -->
+        <section class="contact-section all-section" id="Contact">
+            <div class="container">
+                <div class="contact-container">
+                    <div class="contact-forma">
+                        <h2 class="contact-title section-tittle">Приєднуйся до мережі пекарень</h2>
+                        <p>Заповни форму, щоб ми звʼязались з тобою!</p>
+                        <form name="modal-form" autocomplete="off" novalidate>
+                            <div class="form-field">
+                                <label class="form-label hidden" for="user-name">Ім'я</label>
+                                <!-- class - hidden это мы визуально убирали текст -->
+                                <input class="form-input" type="text" id="user-name" name="user-name" placeholder="Ім'я">
+                                <!-- placeholder - подсказка в строке ввода -->
+                            </div>
+                        
+                            <div class="form-field">
+                                <label class="form-label hidden" for="user-tel">Телефон</label>
+                                <input class="form-input" type="tel" id="user-tel" name="user-tel" placeholder="Телефон">
+                            </div>
+                        
+                            <div class="form-field">
+                                <label class="form-label hidden" for="user-email">Електронна пошта</label>
+                                <input class="form-input" type="email" id="user-email" name="user-email" placeholder="Електронна пошта">
+                            </div>
+                        
+                            <button class="button-modal" type="submit">Замовити дзвінок</button>
+                            <p class="form-terms">Натискаючи на кнопку я погоджуюсь <a class="form-terms-link" href="#">з політикою
+                            конфіденційності</a></p>
+                        </form>
+                    </div>
+                    <iframe class="container-map"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2723.275149710058!2d31.9628743!3d46.9562837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c5c94f48f5c61d%3A0xe1a8bc52f36ddb84!2zNTBBLCDRg9C7LiDQmtGA0YvQu9C-0LLQsCwgNTDQkCwg0J3QuNC60L7Qu9Cw0LXQsiwg0J3QuNC60L7Qu9Cw0LXQstGB0LrQsNGPINC-0LHQu9Cw0YHRgtGMLCA1NDAwMA!5e0!3m2!1sru!2sua!4v1704648520856!5m2!1sru!2sua"
+                        width="603" height="595" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div> 
+            </div>
+        </section>
+    </main>
+    <!-- Три -->
+    <footer class="footer">
+        <!-- Підвал сайту -->
+        <div class="container">
+            <!-- Добовляем ДИВ чтобы поместить их в один блок -->
+            <div class="footer-container">
+                <nav class="footer-nav">
+                    <!-- ПРОБЛЕМА - теперь лого - ссылка занимает весь блок, чтобы это убрать делаем ДИВ и убираем класс от лого -->
+                    <div class="footer-logo">
+                        <a href="#">
+                            <img src="./Figmaimg/logo.svg" alt="Логотип Миколаївської пекарні">
+                        </a>
+                    </div>
+                    <ul class="footer-menu">
+                        <!-- Меню. Список який можна змінити, Li - використовуються тількии в ЮЛ і ОЛ, меню для навігації -->
+                        <li><a class="link" href="#Format-tradition">Наші традиції</a></li>
+                        <li><a class="link" href="#Best-cooks">Шеф-кухарі</a></li>
+                        <li><a class="link" href="#Format">Формати</a></li>
+                        <li><a class="link" href="#Contact">Контакти</a></li>
+                    </ul>
+                </nav>
+                <address class="footer-address">
+                    <!-- Адрес коли вставляємо дані -->
+                    <ul class="address-list">
+                        <li><a class="info-link" href="tel:+380637732251">+ 38 (063) 773 22 51</a></li>
+                        <li><a class="info-link" href="mailto:mococola16@gmail.com">mococola16@gmail.com</a></li>
+                        <li><a class="info-link" href="https://maps.app.goo.gl/S9qMBWGrhCvsNzt27" target="_blank">Україна, м. Миколаїв,
+                                вул. Крилова 50а</a></li>
+                        <li>
+                            <!-- Facebook icon -->
+                            <svg class="address-icon" width="32" height="32">
+                                <!-- Указали размер иконок -->
+                                <use href="./Figmaimg/sprite.svg#icon-facebook"></use>
+                                <!-- Добавили иконки на сайт -->
+                            </svg>
+                            <!-- <a class="link"
+                                href="https://m.facebook.com/people/%D0%A1%D0%B0%D1%88%D0%B0-%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B8%D0%BD%D0%B0/100016331193537/"
+                                target="_blank">icon face</a> -->
+                        </li>
+                        <li>
+                            <!-- Intagram icon -->
+                            <svg class="address-icon" width="32" height="32">
+                                <!-- Указали размер иконок -->
+                                <use href="./Figmaimg/sprite.svg#icon-instagram"></use>
+                                <!-- Добавили иконки на сайт -->
+                            </svg>
+                            <!-- <a class="link" href="https://www.instagram.com/sandra.nkln/" target="_blank">icon inst</a> -->
+                        </li>
+                    </ul>
+                    <div class="address-security">
+                        <a class="incognito-link" href="#" target="_blank">Політика конфіденційності</a>
+                        <p class="datesecurity">&copy; 2024 Дані захищені</p>
+                    </div>
+                </address>
+            </div>
+        </div>
+    </footer>
+    <div class="backdrop">
+        <!-- is-hidden - для того чтобы при открытие сайта модальное окно не вылезало -->
+        <div class="modal">
+            <button class="modal-btn-close" type="button-cls">Close</button>
+            <h2 class="modal-tell">Замовити дзвінок</h2>
+            <p class="modal-text">Залишіть заявку та наш спеціаліст зв'яжеться з Вами!</p>
+            <form name="contact-form" autocomplete="off">
+                <div class="form-field">
+                    <label class="form-label hidden" for="user-name">Ім'я</label>
+                    <!-- class - hidden это мы визуально убирали текст -->
+                    <input class="form-input" 
+                    type="text" 
+                    id="user-name" 
+                    name="user-name" 
+                    placeholder="Ім'я"
+                    required
+                    minlength="2"
+                    maxlength="20">
+                    <!-- placeholder - подсказка в строке ввода -->
+                    <!-- когда добовляем required нужно убрать novalidate из form -->
+                    <!-- minlength и maxlength минимальное и максимальное количество симовлов -->
+                </div>
+
+                <div class="form-field">
+                    <label class="form-label hidden" for="user-tel">Телефон</label>
+                    <input class="form-input" 
+                    type="tel" id="user-tel" 
+                    name="user-tel" 
+                    placeholder="Телефон" 
+                    required
+                    pattern="^\+[0-9]{12}">
+                    <!-- Указали что можно пользоваться только цифрами, номер будет начинаться с + и количество символов -->
+                </div>
+
+                <div class="form-field">
+                    <label class="form-label hidden" for="user-email">Електронна пошта</label>
+                    <input class="form-input" 
+                    type="email" 
+                    id="user-email" 
+                    name="user-email" 
+                    placeholder="Електронна пошта" 
+                    required
+                    minlength="10"
+                    maxlength="30">
+                </div>
+                
+                <button class="button-modal" type="submit">
+                    <!-- disabled добовляем чтобы вырубить кнопку и Css добовляем значения -->
+                    Замовити дзвінок</button>  
+                <p class="form-terms">Натискаючи на кнопку я погоджуюсь <a class="form-terms-link" href="#">з політикою конфіденційності</a></p>
+            </form>
+        </div>
+    </div>
+    <script src="./Js/modal.js"></script>
+</body>
+</html>
+
+
+<!-- Атрибут -->

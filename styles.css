@@ -1,0 +1,962 @@
+/* ПРАВИЛО - Если мы хотим в середине отцовского элемента подвинуть дочерние элементы
+то нужно двигать через PADING */
+
+
+
+/* h1 {
+    border: 4px solid rgb(233, 68, 68);
+   
+}
+p {
+    border: 2px solid rgb(37, 182, 114);
+}
+.main-title {
+    background-color: rgb(236, 177, 214);
+    /* Указываю через (class) . только для одного элемента 
+} 
+*/
+/* 
+.mainbutton {
+    border: 3px solid rgb(0, 0, 0);
+}
+.mainbutton [:disabled] {
+    border: 3px solid rgb(37, 182, 114);
+} */
+
+
+/* .mainbutton {
+    color: var(--bakery-landing-1-background, #FAF4EA);
+    border-radius: 8px;
+    border: 2px solid #819B57;
+    background-color: #819B57;
+} */
+
+/* 
+________________________________________________________________ */
+/* Настройки по умолчанию цветов */
+
+:root {
+    --color-primary-light: #FAF4EA;
+    --color-primary-dark: #31261A;
+    --color-brand: #819B57;
+    --color-brand-dark: #465929;
+    --color-secondary-colors: #A18268;
+    --color-background: #FAF4EA
+}
+
+
+/* База */
+
+* 
+::after,
+::before {
+    box-sizing: border-box;
+    /* Звездочка означает для всех элементов. Указывает что ширина элемента будет такая как  указать не больше и не меньше 
+    Говорит браузеру учитывать любые границы и внутренние отступы в значениях,
+    которые вы указываете в ширине и высоте элемента. Если вы выставите элементу ширину 100 пикселей,
+    то эти 100 пикселей будут включать в себя границы и внутренние отступы,
+    а контент сожмётся,
+    чтобы выделить для них место. Обычно это упрощает работу с размерами элементов.*/
+}
+
+body {
+    color: var(--color-primary-dark);
+    /* Основной цвет текста на сайте  */
+    font-family: 'Poppins', sans-serif;
+    /* Основной шрифт на сайте */
+    font-size: 18px;
+    /* Основной размер шрифта текста */
+    font-weight: 400;
+    /* Значения ширины всего текста weight */
+    line-height: 1.5;
+    /* Значение отступа строк друг от друга */
+    margin: 0;
+    /* Самая большая прозрачная рамка всего сайта, удаляем */
+    background-color: var(--color-background);
+    /* Задали цвет фона всего сайта боди */
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin-top: 0;
+}
+
+a {
+    display: inline-block;
+    /* Так сделали что блок ссылки только там где кнопка/лого */
+}
+
+address {
+    font-style: normal;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Убираем точки при юл */
+
+.hidden {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    /* Скрываем заголовок на сайте визуально */
+}
+
+.all-section {
+    padding: 48px 0;
+    /* Делает отступ от каждой сексии по 48, что в сумме даст 96 пикселей */
+}
+
+.container {
+    width: 100%;
+    /* Делаем фиксированую ширину страницы сайта определенного размера */
+    max-width: 1288px;
+    /* Максимальная ширина */
+    
+    margin: 0 auto;
+    /* Отцентровали все блоки по центру (которые поместили в Div container)
+    чтобы сайт шел по центру */
+
+    padding: 0 24px;
+    /* Добавили невидимую рамку по бокам (отступ со всех сторон для всего) */
+    /* После добовляем к max-width 24*2+1240=1288px и указываем их там (так как
+    мы указали box-sizing: border-box; - размер не привышает*/
+
+}
+
+
+/* header */
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 32px;
+    /* ВОТ ТАК МЫ СДЕЛАЛИ ЧТОБЫ НАВИГАЦИЯ БЫЛА НА КАРТИНКЕ С 1 СЕКЦИИ */
+}
+
+.header-container {
+    display: flex;
+    /* Блок сделали в одну линию (по горизонту) */
+    align-items: center;
+    /* Все внутренние блоки поставили по одной линии (горизонту), тем самым
+    поставили кнопку на ровне с текстом и вернули ее размер который указали */
+    gap: 40px;
+    /* Добавили отступ от меню навигации до кнопки (если уменьшать страницу)
+    чтобы кнопка не прилепала до меню навигации */
+    
+
+}
+
+.header-nav {
+    flex-grow: 1;
+    /* Задали размер блока навигации на сайте больше чем кнопка (на всю ширину оставшеюся)
+    Тем самым переместили кнопку впарво */
+    
+    display: flex;
+    /* Поставили в одну линию Лого и меню навигации */
+    
+    align-items: center;
+    /* Поставили в одну линию по центру лого и меню навигации */
+
+    gap: 40px;
+    /* Добавили отступ от лого до меню навигации (если уменьшать страницу)
+    чтобы лого не прилепала до меню навигации */
+}
+
+.header-menu {
+    display: flex;
+    /* Меню сделали в один ряд по горизонту */
+    
+    gap: 64px;
+    /* Добавили оступы между меню навигации, можно было сделать через margin-right 64px
+    но в таком случае в последнем меню навиг был бы тоже отступ который нужно было убирать 
+    через команду .last-child mi0  */
+
+    flex-grow: 1;
+    /* Сделали чтобы все меню навигации заняло все свободное место в блоке*/
+    justify-content: center;
+    /* Выровняли по центру меню навигации */
+}
+
+
+
+/* Кнопки */
+[type=button] {
+    color: var(--color-primary-light);
+    font-weight: 600;
+    border-radius: 8px;
+    border: 2px solid var(--color-brand);
+    background-color: var(--color-brand);
+    cursor: pointer;
+
+    display: flex;
+    padding: 16px 32px;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+
+.mainbutton {
+    transition-property: background-color, color;
+    /* устанавливает свойство,
+        которое будет анимироваться плавным переходом transition */
+    transition-duration: 0.3s;
+    /* Задали плавный перелив кнопки */
+
+    /* НО МОЖНО УКАЗАТЬ ПРОСТО TRANSFORM И ЗНАЧЕНИЕ КОТОРЕ МЕНЯЕМ И ВРЕМЯ */
+}
+
+.mainbutton:hover {
+    color: var(--color-brand-dark);
+    background-color:#d7eeb3;
+    cursor: pointer;
+}
+
+.buttonsection5:hover {
+    color: var(--color-brand-dark);
+    background-color: transparent;
+    cursor: pointer;
+}
+
+/* Ссылки */
+.link {
+    color: var(--color-primary-light);
+    text-decoration: none;
+    /* Текст-декорейшн - убирает подчеркивания из ссылок */
+
+    transition: color 0.2s;
+    /* Добавили плавный ховер */
+}
+.link:hover {
+    color: var(--color-brand);
+
+    /* font-weight: 600; мы убраои увеличение при наводке, так как при навидение 
+    все остальное меню двигается в стороны - не красиво*/
+}
+
+
+.info-link {
+    color: var(--color-primary-light);
+    text-decoration: none;
+    /* Текст-декорейшн - убирает подчеркивания из ссылок */
+    transition: color 0.2s;
+}
+.info-link:hover {
+    color: var(--color-brand);
+}
+
+
+
+.incognito-link {
+    color: var(--color-primary-light);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.incognito-link:hover {
+    color: var(--color-brand);
+}
+
+/* Секции */
+
+
+/* Section 1 */
+.hero-title {
+    /* Секция 1 Н1 */
+    color: var(--color-primary-light);
+    /* Ширина текста */
+    font-weight: 900;
+    /* Размещения надписи (только текст) на странице (слева,центр,справа) */
+    text-align: center;
+    /* Тень за текстом */
+    text-shadow: -2px -2px 7px black;
+
+    font-size: 128px;
+    font-style: normal;
+    margin-bottom: 0;
+    /* Убираем невидимый отступ внутри блока */
+}
+
+.hero-title .main-name {
+    color: var(--color-brand);
+    /* Секция 1 Н1> сменили цвет второго слова (пробел перед . обязателен)  */
+}
+
+.hero-section {
+    padding: 272px 0;
+    
+    background-image: linear-gradient(103deg, 
+    rgba(18, 18, 17, 0.78) 2.03%, 
+    rgba(18, 18, 17, 0.60) 58.46%, 
+    rgba(18, 18, 17, 0.00) 90.36%),
+    /* Скопировал с фигмы затемнения фото */
+    url(./Figmaimg/bakery.jpg);
+    /* Добавил фон на секицю */
+
+    background-repeat: no-repeat;
+    /* Картинка не повторялась, была одна */
+    
+    background-position: center top;
+    /* Поставили картинку по центру (можно в любой угол командами (top left и т.д.) 
+    так же можно указывать пиксели и совмещать top left*/
+
+    background-size: cover;
+    /* contain - расстянули картинку на весь блокБ так же можно указывать ширину и высоту в писелях
+     cover - расстянуть картинку на всю ширину сайта*/
+
+}
+
+
+/* Секция 1.5 */
+.adv-list {
+    /* Секция 1.5 с ЮЛ Великий попит на ринку */
+    padding: 16px 99px;
+    
+    display: flex;
+
+    justify-content: space-between;
+    /* Командой растянули все элементы равномерно по сторонам */
+
+    gap: 40px;
+    /* Gap - добовляет отступ при уменьшение экрана */
+}
+
+.adv-item {
+    color: var(--color-primary-light);
+    font-size: 20px;
+    font-weight: 300;
+    display: inline;
+    /* Ставим надписи в одну линию, но мы не можем задать размер */
+}
+
+.adv-section {
+    background: var(--color-brand);
+    /* Добавили задний фон на всю ширину секции */
+    padding: 16px;
+    /* Ширина блока (фона за надписю) увеличили */
+    }
+
+
+/* Section 2 */
+.section-tittle {
+    /* Все названия секций Н2 */
+    color: var(--color-primary-dark);
+    /* font-weight: 900; */
+    font-size: 64px;
+    line-height: 1.3;
+}
+
+.tradition-title {
+    margin-bottom: 42px;
+    /* Добавил отступ снизу от текста до текста */
+}
+
+.section-tittle .section-spn {
+    color: var(--color-brand-dark);
+}
+
+.Tradition-text {
+    /* sec 2 параграфы под Н2 shop bakery*/
+    color: var(--color-brand);
+    /* text-transform: uppercase делает все буквы большими, lowercase маленькими */
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.Tradition-textua {
+    /* sec 2 параграфы под Н2*/
+    color: var(--color-brand);
+    font-weight: 600;
+}
+
+.Format-tradition {
+    padding-top: 96px;
+}
+
+.tradition-container {
+    display: flex;
+    /* Создали ДИВ поместили весь письменный контент и картинку командой 
+    поставили в ряд текст и картинку */
+
+    justify-content: space-between;
+    /* контент и картинку раздвинули в разные места */
+
+    gap: 40px;
+}
+
+.tradition-content {
+    max-width: 710px;
+    /* Добавили ширину контента */
+}
+
+
+/* section 3 Наші найкращі шеф -кухарі*/
+.chef-name {
+    margin-bottom: 16px;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.cooks-title {
+    margin: 0 auto 80px;
+    /* 0-верх, авто-лево и право, 80px-низ */
+    max-width: 520px;
+    text-align: center;
+
+    position: relative;
+    /* Это нужно чтобы относительно заголовка можно было двигать полоски ибо они дивгаются
+    до relative */
+}
+
+.cooks-title::after,
+/* Добавили к заголовку линии которые декоративные и их нельзя выделить */
+.cooks-title::before {
+    content: '';
+    /* обязательное значение */
+    display: block;
+    width: 352px;
+    height: 2px;
+    background: #CFCFBC;
+}
+
+.cooks-title::before {
+    position: absolute;
+    /* Добавили полоскам позицию (Элемент исчезает с того места, где он должен 
+    быть и позиционируется заново. Остальные элементы, располагаются так, 
+    как будто этого элемента никогда не было.)  
+    
+    К тому же когда мы ставим позицию абсолют, то элементы становятся блоковыми 
+    и можем убрать дисплей:блок сверху
+    */
+    left: -360px;
+    bottom: 24px;
+    /* Эти значения можно вынести к общим */
+}
+
+.cooks-title::after {
+    position: absolute;
+    /* Добавили полоскам позицию (Элемент исчезает с того места, где он должен 
+    быть и позиционируется заново. Остальные элементы, располагаются так, 
+    как будто этого элемента никогда не было.)  */
+    right: -360px;
+    bottom: 24px;
+    /* Эти значения можно вынести к общим позицию и боттом */
+}
+
+/* Так же можно было поставить полоски другим способом, убрать максимальную ширину заголовока,
+ в заголовк поставить БР и указать Лефт и райт 0 или 8 как на макете*/
+
+
+.cooks-img {
+    border-radius: 4px 4px 4px 200px;
+    /* Скруглил фото, взял это значение из фигмы */
+    background: #D9D9D9;
+    box-shadow: -16px 16px 0 0 var(--color-background), -16px 16px 0 2px var(--color-secondary-colors);
+    /* Добавил возле фото элемент */
+    height: 445px;
+    width: 268px;
+}
+
+.chefs-list {
+    /* UL делаем флекс контейнер для того чтобы поставить карточки и надпись в линию*/
+    display: flex;
+    gap: 50px 30px;
+    /* 50px верх 30px низ */
+
+    /* flex-wrap: wrap; */
+    /* Это нужно на будущее, если в дальнейшем будет дополнения поворов то они будут 
+    появляться внизу, а не справа и тем самым уменьшать размер старых поваров. */
+}
+
+.chefs-item {
+    /* свойство определяет размер контент-бокса 
+    100% - размер всей страницы 
+    30px - gap
+    2 - сколько флекс блоков у нас 
+    НО GAP НАХОДИТСЯ ЕЩЕ НЕ ПО СЕРЕДИНЕ - ДОБОВЛЯЕМ В ОБЩИЙ БЛОК .chefs-list*/
+    flex-basis: calc(100% - 30px / 2);
+}
+
+.chef-card {
+    display: flex;
+    /* Текст в линию и встал между фото, но прижат к фото - нужно добавит gap */
+    gap: 30px;
+}
+
+
+.chef-text p {
+    margin-bottom: 24px;
+}
+.chef-text p:last-child {
+    margin-bottom: 0px;
+    /* Этим мы указали что марджин к каждому предложению текста будет 24Б но кроме самого последнего
+    там его не будет вовсе */
+}
+
+
+/* section 4 Walrus */
+.format-card {
+    height: 444px;
+    border: 1px solid rgb(114, 0, 0);
+    border-radius: 16px;
+    /* Рамка */
+    padding: 24px;
+    /* Отступ от краев */
+    background-image: linear-gradient(180deg, rgba(49, 38, 26, 0.00) 55.21%, rgba(49, 38, 26, 0.71) 72.92%, var(--color-primary-dark) 100%);
+    /* Скопировали данные с фигмы но добавили -image */
+
+    transition: transform 0.2s;
+}
+
+.format-card:hover {
+    transform: scale(1.03);
+    /* Карточки немного увеличивыются при наведение */
+}
+
+.format-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-primary-light);
+    text-shadow: -2px -2px 7px black;
+}
+
+.format-text {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--color-primary-light);
+    text-shadow: -2px -2px 7px black;
+    
+}
+
+.forma1 {
+    background-image: url('./Figmaimg/forma1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.forma2 {
+    background-image: url('./Figmaimg/forma2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.forma3 {
+    background-image: url('./Figmaimg/forma3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.formatsss-title {
+    margin-bottom: 80px;
+    text-align: center;
+    /* Названия секции по центру */
+}
+
+.format-list {
+    display: flex;
+    gap: 20px;
+
+    /* justify-content: space-evenly; */
+    /* Сука сделал одинкаовой ширины ебучие колонки, равномено с отступами по бокам
+    justify-content: space-between - это отступ колонок друг от друга только 1 и 3 прижаты к бокам страницы
+    justify-content: space-evenly - это отступ колонок друг от друга только 1 и 3 прижаты к 2 
+    justify-content: flex-end; - передвинуть текст */
+}
+
+.formats-item {
+    flex-basis: calc((100% - 40px) / 3);
+}
+
+
+/* carousel 4 */
+.carousel {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--color-primary-dark);
+
+    align-items: center;
+    justify-content: center;
+    /* Отцентровали срелочку по центру кружка */
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+    /* Кнопки всегда будут одного размера и не будут менять свою форму */
+
+    /* Отключаем все от Type: buttom */
+    background-color: transparent;
+    padding: 0;
+}
+
+.carousel:hover {
+    background-color: var(--color-primary-dark);
+    fill: var(--color-primary-light);
+}
+
+.carousel:hover .carousel-arrow {
+    fill: var(--color-primary-light);
+}
+/* Так мы задали что при наведение на кнопку - стрелочка (не зависимо на вели на
+саму стрелочку поменяет цвет) */
+
+.carousel-arrow {
+    fill: var(--color-primary-dark);
+}
+
+.arrow-transform {
+    transform: rotate(180deg);
+    /* Поворачивает стрелочки на 180 градусов */
+}
+
+/* .carousel-arrow:hover {
+    fill: var(--color-primary-light);
+} - Это НЕ ЕСТЬ ПРАВИЛЬНО когда для кнопки при наведение менять цвет
+*/
+
+
+.formats-container {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+
+
+
+/* section 5 Приєднуйся до мережі пекарень */
+.contact-section {
+    padding-bottom: 96px;
+}
+
+.invite-text {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.contact-title {
+    margin-bottom: 16px;
+}
+
+
+.contact-container {
+    display: flex;
+    gap: 32px;
+}
+
+.container-map {
+    flex-shrink: 0;
+    /* Карта будет ровно такого же размера как мы ей указали */
+    border: 0;
+    border-radius: 16px;
+}
+
+
+
+/* footer */
+.footer {
+    background-image: url('./Figmaimg/footet-bgr.png');
+    background-color: #31261A;
+    background-repeat: no-repeat;
+    /* Картинка не повторяется */
+    background-size: cover;
+    /* Расстянули картинку на всю страницу */
+    background-position: center;
+    /* Поставили по центру */
+    padding: 32px 0;
+
+    position: relative;
+    /* Это нужно чтобы мы двигали картинку хлеба по футеру */
+}
+
+.info-link {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.incognito-link {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.datesecurity {
+    /* security подвал */
+    color: #A18268;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.address-icon {
+    fill: var(--color-primary-light);
+    /* Добавили к иконкам их цвет
+    fill - добовлет цвет иконкам (заливка)
+    stroke: red - добовляет обводку иконки */
+    transition: fill 0.2s;
+}
+
+.address-icon:hover {
+    fill: var(--color-brand);
+}
+
+
+
+.footer-container {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-nav,
+.footer-address {
+    flex-basis: 50%;
+    /* Указали чтобы блок НАВигации занимал 50 свободного места на странице
+    задаёт базовый размер флекс элемента по основной оси */
+    display: flex;
+    /* justify-content: space-around; - НЕ ПОДХОДИТ, НУЖНО ДОБАВИТЬ 50 ПРОЦЕНТОВ ШИРИНЫ */
+    gap: 20px;
+}
+
+.footer-logo,
+.footer-menu {
+    flex-grow: 1;
+}
+
+.address-list,
+.address-security {
+    flex-grow: 1;
+}
+
+
+
+/* Так мы добовляем декор сайта то можем это делать сразу через СSS */
+
+.footer::before {
+    /* position: absolute; */
+    /* background-repeat: no-repeat; */
+    /* Чтобы изображение не повторялось, а футеру добовляем position:relative */
+    background-image: url('./Figmaimg/decor-bread-small.png');
+    /* content: ''; */
+    width: 180px;
+    height: 120px;
+
+    /* bottom: 0; */
+    left: 0;
+    /* Поставили на место хлеб */
+}
+
+.footer::after {
+    /* position: absolute; */
+    background-image: url('./Figmaimg/decor-bread-big.png');
+    /* content: ''; */
+    width: 380px;
+    height: 190px;
+    /* bottom: 0; */
+    right: 0;
+}
+
+/* И теперь можем одинаковые значения вынести в общий СЕЛЕКТОР  */
+.footer::before,
+.footer::after {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    background-repeat: no-repeat;
+}
+
+
+
+
+
+
+
+/* MODAL */
+.modal-tell {
+    text-align: center;
+    margin-bottom: 8px;
+    font-weight: 900;
+    font-size: 60px;
+    font-style: normal;
+    line-height: 84px;
+}
+.modal-text {
+    text-align: center;
+    font-family: Roboto;
+    margin-bottom: 72px;
+    color: var(--color-brand-dark);
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Затемнили */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Поставили модальное окно по центру */
+
+    padding: 20px 0;
+    /* Отступы от краев  */
+
+    transition: opacity 0.3s, visibility 0.3s;
+    /* Плавное появление модального окна */
+}
+
+.backdrop.is-hidden {
+    /* display: none; */
+    /* Сделали чтобы на кнопку появлялось модальное окно и пропадало */
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    /* Чтобы была анимация - на будущие*/
+}
+
+.modal {
+    position: relative;
+    /* Добовляю чтобы двигать крестик */
+    width: 100%;
+    max-width: 880px;
+    height: 100%;
+    max-height: 880px;
+    /* Указываем так чтобы на маленьких экранах можно было закрыть модальное окно 
+    и оно было читабельным */
+    padding: 128px;
+    box-sizing: border-box;
+
+    background-color: var(--color-primary-light);
+    border-radius: 32px;
+
+    overflow-y: auto;
+    /* Чтобы можно было скролить модальное окно */
+}
+
+.modal-btn-close {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+}
+
+.button-modal {
+    color: var(--color-primary-light);
+    font-weight: 600;
+    border-radius: 8px;
+    border: 2px solid var(--color-brand);
+    background-color: var(--color-brand);
+    cursor: pointer;
+    padding: 16px 32px;
+    align-items: flex-start;
+    gap: 10px;
+    
+    transition-property: background-color, color;
+    /* устанавливает свойство,
+    которое будет анимироваться плавным переходом transition */
+    transition-duration: 0.3s;
+    
+    display: block;
+    margin: 0 auto 24px;
+    /* Поставили кнопку по центру, работает только для display: block; 24 - снизу кнопки*/
+}
+
+.button-modal:hover {
+    color: var(--color-brand-dark);
+    background-color: #d7eeb3;
+    cursor: pointer;
+}
+
+.button-modal[disabled] {
+    /* указываем что пока не заполнены все поля кнопка будет светиться серым
+    но работу нужно прописывать в js */
+    background-color: lightgray;
+    color: gray;
+    border-color: currentColor;
+    /* currentColor нааследывает цвет кнопки */
+    cursor: not-allowed;
+    /* курсор показывает что кнопка не активна */
+}
+
+.form-terms {
+    max-width: 210px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: center;
+    /* Фигма */
+    margin: 0 auto;
+}
+
+.form-terms-link {
+    color: var(--color-primary-dark);
+    text-underline-offset: 2px;
+    /* Отступ лини под текстом */
+}
+
+
+
+/* Form */
+.form-field {
+    margin-bottom: 32px;
+}
+
+.form-label {
+    display: block;
+}
+
+.form-input {
+    padding: 16px 42px;
+    width: 87%;
+    border: 1px solid var(--color-secondary-colors);
+    border-radius: 8px;
+    background-color: transparent;
+
+    font-size: 16px;
+    line-height: 1.17;
+    /* Стили с фигмы */
+}
+
+.form-input:focus {
+    border-color: var(--color-brand);
+    outline: none;
+}
+
+.form-input::placeholder {
+    color: var(--color-secondary-colors);
+}
+
+.form-input:focus::placeholder {
+    color: var(--color-primary-dark);
+    /* Это нужно чтобы при выборе строки плейс холдер (подсказка) меняла цвет */
+}
+
+
+
+/* Интересная альтернатива с передвиганием текста
+.form-field {
+    margin-bottom: 32px;
+    position^ relative;
+}
+
+.form-label {
+    position: absolute;
+    top: 16px;
+    left: 42px;
+    font-size: 16px;
+    line-height: 1.17;
+    color: var(--color-secondary-colors);
+    transition: transform 0.3s;
+}
+
+.form-field:focus-within .form-label {
+    transform: translate(-36px, -40px);
+}
+
+При этом в html нужно убрать placeholder
+*/
